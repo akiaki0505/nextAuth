@@ -7,9 +7,9 @@ export function SignIn({
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
   return (
-    <form action={async() => {
+    <form action={async () => {
       "use server";
-      await signIn(provider);
+      await signIn();
     }}>
       <Button {...props}>サインイン</Button>
     </form>
