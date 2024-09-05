@@ -9,7 +9,7 @@ export function SignIn({
   return (
     <form action={async () => {
       "use server";
-      await signIn();
+      await signIn(provider);
     }}>
       <Button {...props}>サインイン</Button>
     </form>
@@ -21,7 +21,10 @@ export function SignOut({
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
   return (
-    <form className="w-full">
+    <form action={async () => {
+      "use server";
+      await signOut();
+    }}>
       <Button variant="ghost" className="w-full p-0" {...props}>
         ログアウト
       </Button>
